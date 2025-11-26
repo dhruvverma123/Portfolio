@@ -1,0 +1,283 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  animation: shrink 0.1s ease-in-out infinite normal;
+  transition: all 5s linear;
+  animation-play-state: paused;
+}
+
+@keyframes shrink {
+  0% {
+    transform: translate(-10px);
+  }
+  50% {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 255, 0.362);
+  }
+  100% {
+    transform: translate(10px);
+  }
+}
+
+.customStyle {
+  position: relative;
+}
+
+.customStyle::after {
+  content: "";
+  position: absolute;
+  /* top: 0; */
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: black;
+  transition: width 0.1s ease-in-out;
+}
+
+.customStyle:hover::after {
+  width: 100%;
+}
+
+/* btn style */
+.btnStyle {
+  transition: all 0.1s ease-in-out;
+}
+
+.btnStyle:hover {
+  transform: scaleY(1.04);
+}
+
+.rightStyle {
+  transition: all 0.2s ease-in-out;
+}
+
+.btnStyle:hover .rightStyle {
+  transform: translateX(10%);
+}
+
+/* .btnStyle:has(:hover) .headingStyle {
+  font-size: 4rem;
+} */
+
+/* bottom btn style */
+.centerStyle {
+  bottom: 0;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.downArrow {
+  transition: all 0.2s ease-in-out;
+}
+
+.downArrow {
+  position: absolute;
+  bottom: 10%;
+  left: 40%;
+  font-size: 1.3rem;
+}
+
+.centerStyle:hover .downArrow {
+  transform: translateY(20%);
+}
+
+/* photoStyle */
+.photoStyle {
+  translate: -40% 40%;
+}
+
+/* scrollUpper */
+.navbarShowStyle {
+  position: relative;
+}
+
+.upperScrollStyle {
+  transition: all 0.1s ease-in-out;
+}
+
+.scrollUpper {
+  position: fixed;
+  left: 50%;
+  height: 40px;
+  translate: -50% 50%;
+  width: 40%;
+}
+
+@media (max-width: 1045px) {
+  .scrollUpper {
+    position: fixed;
+    left: 50%;
+    height: 40px;
+    translate: -50% 50%;
+    width: 60%;
+  }
+}
+
+@media (max-width: 740px) {
+  .scrollUpper {
+    position: fixed;
+    left: 50%;
+    height: 40px;
+    translate: -50% 50%;
+    width: 75%;
+  }
+}
+
+.infiniteStyle {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.infiniteStyle::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: rgba(0, 255, 255, 0.204);
+  border-radius: 3rem;
+  animation: round 2s linear infinite normal;
+  z-index: -1000;
+}
+
+@keyframes round {
+  0% {
+    transform: translateX(240px);
+  }
+  100% {
+    transform: translateX(-225px);
+  }
+}
+
+/* hoverEffect */
+
+.hoverEffect {
+  animation: effect 0.1s ease-in-out infinite normal;
+}
+
+@keyframes effect {
+  0% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+.borderStyle {
+  position: relative;
+}
+
+.borderStyle::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #f97316;
+}
+
+.transformEffect1,
+.transformEffect2 {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.97, 1.24);
+}
+
+.transformEffect1:hover {
+  transform: scale(1.2) rotate(3deg);
+  color: #f97316;
+}
+
+.transformEffect2:hover {
+  transform: scale(1.2) rotate(-3deg);
+  color: #f97316;
+}
+
+/* navStyleForDecrease640px */
+.navStyleForshow640px {
+  display: none;
+}
+
+.hamBar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .navStyleForDecrease640px {
+    display: none;
+  }
+
+  .navStyleForshow640px {
+    position: fixed; /* ya absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.785);
+    z-index: 2999;
+    padding: 0.5rem 0;
+    height: 0;
+    opacity: 0;
+    transition: height 0.2s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  .navStyleForshow640px a {
+    opacity: 0.7;
+  }
+
+  .navStyleForshow640px a:hover {
+    opacity: 1;
+  }
+
+  .nav-open {
+    height: 200px;
+    opacity: 1;
+  }
+
+  .navShow {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3.5rem;
+    background: #00000085;
+    display: flex;
+    justify-content: end;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    z-index: 3999;
+  }
+
+  .hamBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    height: 2.3rem;
+    width: 2.3rem;
+    border-radius: 10%;
+  }
+
+  .hamBar:hover {
+    background-color: rgba(0, 255, 255, 0.207);
+  }
+
+  .cross {
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .cross:hover {
+    font-size: 1.6rem;
+  }
+}
